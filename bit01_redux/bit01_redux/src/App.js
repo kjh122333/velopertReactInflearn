@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //리듀서; 입력인수는 2개로 유지, but 받기싫으면 null로
 // `SWITCH`문 필수
-export function reduser(state = { number: 10 }/*state 초기값 설정(개중요!) */, action) {
+export function reducer(state = { number: 10 }/*state 초기값 설정(개중요!) */, action) {
 
   //(필수)
   switch (action.type) {
@@ -47,19 +47,19 @@ class App extends Component {
   }
 }
 //action = event와 동일
-const act01TO = () => {
+const act01TO = (dispatch) => {
   console.log('act01');
 
   return {
-    // 기본적으로 제공 되는 `onclick`을 사용하는게 아니라 내가 만든 onMyClick을 사용하겠따.
-    onMyClick: (dispatch) => {
-      console.log(' start dispatch myclick');
-      //dispatch : 다른 곳으로 보내주는 역할
-      dispatch({
-        type: 'MyClick'
-      })
-    }
-
+   
+ // 기본적으로 제공 되는 `onclick`을 사용하는게 아니라 내가 만든 onMyClick을 사용하겠따.
+ onMyClick: () => {
+  console.log(' start dispatch myclick');
+  //dispatch : 다른 곳으로 보내주는 역할
+  dispatch({
+    type: 'MyClick'
+  })
+}
   }
 }//액션이 끝나면 리듀스로 감 (리듀스는 body가 스위치로 되어있음,  분기 기준을 내가 정함( onMyClick ) <<< 리듀스안에는 내가 정한 분기문이 있어야됨.)
 

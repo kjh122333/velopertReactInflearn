@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //리듀스를 스토어에 등록 하는 작업
-import App, {reduser} from './App'; //작업1
+import App, {reducer} from './App'; //작업1
 import {createStore} from 'redux'; //작업2
-import Provider from 'react-redux'; //작업3
+import {Provider} from 'react-redux'; //작업3
 import * as serviceWorker from './serviceWorker';
-const store = createStore(reduser);
+const store = createStore(reducer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
