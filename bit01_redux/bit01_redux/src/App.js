@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 //리듀서; 입력인수는 2개로 유지, but 받기싫으면 null로
 // `SWITCH`문 필수
-function reduser(state, action) {
+function reduser(state = { number: 10 }/*state 초기값 설정(개중요!) */, action) {
 
+  //(필수)
   switch (action.type) {
     //TO-DO
     //////////////////////////////////////////////////////////////////////////////////
@@ -13,12 +14,20 @@ function reduser(state, action) {
     //////////////////////////////////////////////////////////////////////////////////
     default: return state;
 
+
+    // 1. state의  갱신은 모두 리듀스 안에서 일어나야함, ARS을 제외한 곳에서는 값 갱신이 있어어는 안됨
+    // 2. 리듀스 함수는 무조건 순수 함수(함수 내에서 (1)value 갱신, (2)외부에서 변수를 가지고 오면 안됨) 여야함
+    //(개중요!)state와 action의 값을 변경시키지말라는 소리가 1,2 이다
+    // 리듀스에서 state 초기값 설정이 필요함
+    // + reduser's Action : 
+
+
   }
 }
 
 export default class App extends Component {
   //action = event와 동일
-  act01 = () => {
+  act01TO = () => {
     console.log('act01');
 
     return {
@@ -32,8 +41,17 @@ export default class App extends Component {
       }
 
     }
-  }//액션이 끝나면 리듀스로 감 (리듀는 body가 스위치로 되어있음,  분기 기준을 내가 정함( onMyClick ) <<< 리듀스안에는 내가 정한 분기문이 있어야됨.)
+  }//액션이 끝나면 리듀스로 감 (리듀스는 body가 스위치로 되어있음,  분기 기준을 내가 정함( onMyClick ) <<< 리듀스안에는 내가 정한 분기문이 있어야됨.)
 
+  //state01To --return--> component  
+  state01To = (state) => {
+
+    return {
+      //여기서 갱신 가능하다고 처하면 안됨
+      // 갱신은 리듀스에서...
+      num : state.num
+    }
+  }
 
   /**
    * 1. 액션(이벤트) 설정
@@ -50,7 +68,5 @@ export default class App extends Component {
       <div>
       </div>
     )
-
-
   }
 }
