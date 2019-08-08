@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import IterationSample from './IterationSample';
+import FunctionalComponent01 from './FunctionalComponent01'
 
 class App extends Component {
   render() {
@@ -7,6 +8,13 @@ class App extends Component {
       <div>
         <IterationSample >
         </IterationSample>
+
+        <FunctionalComponent01>
+      
+
+        </FunctionalComponent01>
+
+
       </div>
     );
   }
