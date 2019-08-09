@@ -11,7 +11,9 @@ const store = createStore(reducer);
 
 //store에 저장되는 순간이 갱신이 되는 순간.
 //리듀스로 값이 갱신된다
-ReactDOM.render(<Provider store={store}><App />{console.log('store in')}</Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App>
+    {console.log("index.js_App tag")}
+</App>{console.log('store in')}</Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
