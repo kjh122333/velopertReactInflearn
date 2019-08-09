@@ -8,7 +8,10 @@ import {Provider} from 'react-redux'; //작업3
 import * as serviceWorker from './serviceWorker';
 const store = createStore(reducer);
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+
+//store에 저장되는 순간이 갱신이 되는 순간.
+//리듀스로 값이 갱신된다
+ReactDOM.render(<Provider store={store}><App />{console.log('store in')}</Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

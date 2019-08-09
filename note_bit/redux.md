@@ -20,6 +20,7 @@
     > `index.js` 에 import
 
  5.  
+ `index.js` 설정
  ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -37,9 +38,13 @@ ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementB
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
+//store
+//*컴포넌트는 액션과 스테이트를 사용가능하고 밖에 리듀스가 있다
+//실행 순서는  액션 후 리듀스 후 스테이트*
  ```
->>> store
-*컴포넌트는 액션과 스테이트를 사용가능하고 밖에 리듀스가 있다
-싱행 순서는  액션 후 리듀스 후 스테이트*
+
  6. 
+
+```console
+
+```
